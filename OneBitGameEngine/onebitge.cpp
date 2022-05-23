@@ -85,9 +85,9 @@ void OneBitGE::LoadTileToBuffer(int xPosition, int yPosition, int tileID)
 			break;
 		}
 	}
-	for (unsigned __int64 i = 0 + xPosition; i < (m_tileWidth + xPosition); i++) {
-		for (unsigned __int64 j = 0 + yPosition; j < (m_tileHeight + yPosition); j++) {
-			m_pScreen[j * m_screenWidth + i] = m_tileSheet[(temp.y + j - yPosition) * m_tileSheetWidth + (temp.x + i - xPosition)];
+	for (long long i = 0 + xPosition; i < (m_tileWidth + static_cast<long long>(xPosition)); i++) {
+		for (long long j = 0 + yPosition; j < (m_tileHeight + static_cast<long long>(yPosition)); j++) {
+			m_pScreen[j * m_screenWidth + i] = m_tileSheet[(temp.y + j - static_cast<long long>(yPosition)) * m_tileSheetWidth + (temp.x + i - static_cast<long long>(xPosition))];
 		}
 	}
 }
@@ -291,7 +291,7 @@ void OneBitGE::GetTileSheetFromFile(string fileName)
 	{
 		while (getline(file, temp))
 		{
-			for (unsigned int i = 0; i < temp.size(); i++) 
+			for (int i = 0; i < temp.size(); i++) 
 			{
 				if (temp[i] == '1')
 					m_tileSheet += L'\u2588';

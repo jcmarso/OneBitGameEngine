@@ -13,7 +13,9 @@ using namespace std;
 class AssetID	// Used for map tiles and character sprites IDs
 {
 public:
-    int id = 0, x = 0, y = 0;
+    int id = 0;
+    long long x = 0;
+    long long y = 0;
 };
 
 class OneBitGE
@@ -41,8 +43,8 @@ private:
     wstring m_tileSheet;
     wstring m_spriteSheet;
     wchar_t* m_pScreen = nullptr;
-    unsigned __int64 m_screenWidth;
-    unsigned __int64 m_screenHeight;
+    int m_screenWidth;
+    int m_screenHeight;
     int m_tileSheetWidth;
     int m_tileSheetHeight;
     int m_spriteSheetWidth;
